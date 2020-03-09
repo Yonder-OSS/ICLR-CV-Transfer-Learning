@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+    iclr-cv-model:
+        image: iclr-cv-model
+        volumes:
+            - .:/root
+            - ./data:/root/data
+            - ./model_weights:/root/model_weights
