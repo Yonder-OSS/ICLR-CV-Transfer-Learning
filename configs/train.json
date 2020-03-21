@@ -1,0 +1,18 @@
+{
+    "batch_size": 256,
+    "nb_epoch": 50,
+    "learning_rate":0.1,
+    "exponential_decay": false,
+    "freeze": true,
+    "load_frozen": true,
+    "save_checkpoint_after_iteration": 1,
+    "save_checkpoint_per_iteration": 5, 
+    "tr_tf_record_files": ["/root/data/tfrecords/data.tfrecord"], 
+    "out_dir": "/root/model_weights/VGG16/fcn-experiments/experiment-lr-0.1-extended-cont6",
+    "model_file": "/root/model_weights/VGG16/fcn-experiments/experiment-lr-0.1-extended-cont5/models/iteration-253",
+    "model_file_dum": "/root/model_weights/VGG16/VGG16_BigEarthNet-19_labels",
+    "shuffle_buffer_size": 5000,
+    "training_size": 3237,
+}
+
+

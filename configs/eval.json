@@ -1,0 +1,9 @@
+{
+    "batch_size": 128,
+    "test_tf_record_files": ["/root/data/tfrecords/data.tfrecord"],  
+    "out_dir": "/root/model_weights/VGG16/fcn-experiments/experiment-test-weight",
+    "model_file": "/root/model_weights/VGG16/fcn-experiments/lr_0.1-extend-cont6/iteration-633",
+    "test_size": 3237
+}
+
+

@@ -139,5 +139,4 @@ model_weights/
 models/
 /nets/
 .config/matplotlib
-/configs/
 
