@@ -1,0 +1,66 @@
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.1-extended-cont4/models/iteration-253
+Mean NLL on training fields: 1.26248981516
+Median NLL on training fields: 1.27321714385 
+Mean NLL on validation fields: 1.55598021326
+Median NLL on validation fields: 1.55431231393
+Mean NLL on individual pixels: 1.22399168106
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.01-extended/models/iteration-253
+Mean NLL on training fields: 1.26489437039
+Median NLL on training fields: 1.2751887847
+Mean NLL on validation fields: 1.55093913653
+Median NLL on validation fields: 1.55036261678
+Mean NLL on individual pixels: 1.22002713824
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.1-extended-cont5/models/iteration-253
+Mean NLL on training fields: 1.25500604953
+Median NLL on training fields: 1.26577864452
+Mean NLL on validation fields: 1.55164812932
+Median NLL on validation fields: 1.55155791251
+Mean NLL on individual pixels: 1.20994597549
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.01-extended-cont1/models/iteration-253
+Mean NLL on training fields: 1.26193150962
+Median NLL on training fields: 1.27212141532
+Mean NLL on validation fields: 1.5532889736
+Median NLL on validation fields: 1.55358924599
+Mean NLL on individual pixels: 1.21679408067
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.1-weighted/models/iteration-160
+Mean NLL on training fields: 1.81341388346
+Median NLL on training fields: 1.82561333172
+Mean NLL on validation fields: 1.86214698379
+Median NLL on validation fields: 1.87153432209
+Mean NLL on individual pixels: 1.83136493067
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.1-weighted/models/iteration-375
+Mean NLL on training fields: 1.84753773364
+Median NLL on training fields: 1.85059197558
+Mean NLL on validation fields: 1.87421561487
+Median NLL on validation fields: 1.87494638635
+Mean NLL on individual pixels: 1.82958932367
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.1-weighted/models/iteration-420
+Mean NLL on training fields: 1.8468112393
+Median NLL on training fields: 1.85033916383
+Mean NLL on validation fields: 1.87198600137
+Median NLL on validation fields: 1.87257171695
+Mean NLL on individual pixels: 1.8208803111
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.001-extended/models/iteration-170
+Mean NLL on training fields: 1.25584789609
+Median NLL on training fields: 1.26616041103
+Mean NLL on validation fields: 1.55264468727
+Median NLL on validation fields: 1.55229652882
+Mean NLL on individual pixels: 1.20933493772
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.01-extended-unfreeze-vgg/models/iteration-60
+Mean NLL on training fields: 9.5285298632
+Median NLL on training fields: 9.67446500896
+Mean NLL on validation fields: 13.9469524766
+Median NLL on validation fields: 13.913354114
+Mean NLL on individual pixels: 11.1662628365
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.001-bs-64/models/iteration-65
+Mean NLL on training fields: 1.4636140362
+Median NLL on training fields: 1.46373401491
+Mean NLL on validation fields: 1.51410701871
+Median NLL on validation fields: 1.5146294546
+Mean NLL on individual pixels: 1.39134697764
+Experiment: /root/model_weights/VGG16/fcn-experiments/experiment-lr-0.001-bs-64-weighted/models/iteration-55
+Mean NLL on training fields: 1.90392248888
+Median NLL on training fields: 1.90466263058
+Mean NLL on validation fields: 1.91544238496
+Median NLL on validation fields: 1.9153329432
+Mean NLL on individual pixels: 1.89108103308

@@ -8,5 +8,4 @@ COPY . $HOME/
 RUN pip install -r $HOME/requirements.txt
 RUN pip install -e .
 
-CMD ["python", "/root/train.py", "/root/configs/train.json"]
-#CMD ["python", "/root/eval.py", "/root/configs/eval.json"]
+CMD ["python", "/root/eval.py", "/root/configs/eval.json"]

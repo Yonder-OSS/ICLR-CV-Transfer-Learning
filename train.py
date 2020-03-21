@@ -1,13 +1,8 @@
-# -*- coding: utf-8 -*-
-#
 # This script can be used to train any deep learning model on the BigEarthNet. 
 #
 # To run the code, you need to provide a json file for configurations of the training.
 # 
-# Author: Gencer Sumbul, http://www.user.tu-berlin.de/gencersumbul/
-# Email: gencer.suembuel@tu-berlin.de
-# Date: 23 Dec 2019
-# Version: 1.0.1
+# Original Author: Gencer Sumbul, http://www.user.tu-berlin.de/gencersumbul/ gencer.suembuel@tu-berlin.de
 # Usage: train.py [CONFIG_FILE_PATH]
 
 from __future__ import print_function
@@ -25,7 +20,7 @@ import tensorflow as tf
 tf.set_random_seed(SEED)
 
 from src.data import ZindiDataset
-from src.model import VggFcnBaseModel
+from src.model import VggFcnBaseModel, Resnet152FcnBaseModel
 
 import os
 import argparse
@@ -35,6 +30,10 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 def run_model(args):
     with tf.Session() as sess:
+
+        # check if GPU is available
+        print("GPU is available: {}".format(tf.test.is_gpu_available()))
+
         iterator = ZindiDataset(
             TFRecord_paths = args['tr_tf_record_files'], 
             batch_size = args['batch_size'], 
@@ -46,12 +45,28 @@ def run_model(args):
 
         # load VGG base model and restore weights
         model = VggFcnBaseModel()
-        model.load_pretrained(args['model_file'], sess)
+        #model.load_pretrained(args['model_file'], sess)
 
         # add segmentation head, only initialize tensors in its scope
         model.build_segmentation_head(session=sess)
-        model.define_loss()
-        model.define_optimizer(args['learning_rate'], sess)
+        model.define_loss(freeze = args['load_frozen'])
+
+        model.define_optimizer(
+            sess, 
+            args['learning_rate'], 
+            freeze = args['load_frozen'],
+            exponential_decay = args['exponential_decay']
+        )
+        model.load_pretrained(args['model_file'], sess)
+
+        # prepare model for unfreezing
+        # model.define_loss(freeze = args['freeze'])
+        # model.define_optimizer(
+        #     sess, 
+        #     args['learning_rate'], 
+        #     freeze = args['freeze'],
+        #     exponential_decay = args['exponential_decay']
+        # )
 
         # set up model saver
         model_saver = tf.train.Saver(max_to_keep = 5, var_list=tf.global_variables())
@@ -68,9 +83,11 @@ def run_model(args):
                 batch_dict = sess.run(iterator_ins)
             except tf.errors.OutOfRangeError:
                 break
+
             #_, _, batch_loss, batch_summary = sess.run([train_op, metric_update_ops, model.train_loss, summary_op], 
             _, train_loss, val_loss, batch_summary = sess.run([model.train_op, model.train_loss, model.val_loss, summary_op], 
                                                         feed_dict = model.feed_dict(batch_dict, is_training=True))
+
             iteration_idx += 1
             summary_writer.add_summary(batch_summary, iteration_idx)
             if (iteration_idx % args['save_checkpoint_per_iteration'] == 0) and (iteration_idx >= args['save_checkpoint_after_iteration']):

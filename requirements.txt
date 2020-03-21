@@ -3,3 +3,5 @@ pandas
 jupyter
 matplotlib
 tqdm
+scikit-learn
+scipy>=1.2.0

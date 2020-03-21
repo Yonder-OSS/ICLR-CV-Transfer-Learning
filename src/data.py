@@ -87,34 +87,34 @@ def prep_data(
     crop_ids, field_ids = [], []
     eopatch_names = glob.glob('{}/*'.format(raw_data_path))
     pbar = tqdm(total=len(eopatch_names))
-    writer = tf.python_io.TFRecordWriter(save_data_path)
+    # writer = tf.python_io.TFRecordWriter(save_data_path)
 
     for eopatch in eopatch_names:
 
         # load data without eo patch library
-        band_data = np.load('{}/data/S2-BANDS-L2A.npy'.format(eopatch))
-        crop_id_data = np.load('{}/mask_timeless/CROP_ID.npy'.format(eopatch)).squeeze()
+        # band_data = np.load('{}/data/S2-BANDS-L2A.npy'.format(eopatch))
+        # crop_id_data = np.load('{}/mask_timeless/CROP_ID.npy'.format(eopatch)).squeeze()
         field_id_data = np.load('{}/mask_timeless/FIELD_ID.npy'.format(eopatch)).squeeze()
 
-        image_timeseries = np.moveaxis(band_data, -1, 1)
+        # image_timeseries = np.moveaxis(band_data, -1, 1)
 
-        # expand over time dimension Shape: [Time, Bands, Height, Width]
-        for image_tensor in image_timeseries:
-            example = image_to_tf_record(
-                image_tensor, 
-                crop_id_data, 
-                field_id_data
-            )
-            writer.write(example.SerializeToString())
+        # # expand over time dimension Shape: [Time, Bands, Height, Width]
+        # for image_tensor in image_timeseries:
+        #     example = image_to_tf_record(
+        #         image_tensor, 
+        #         crop_id_data, 
+        #         field_id_data
+        #     )
+        #     writer.write(example.SerializeToString())
 
         field_ids.append(field_id_data)
-        crop_ids.append(crop_id_data)
+        #crop_ids.append(crop_id_data)
         
         pbar.update()
         
     field_ids = np.concatenate(field_ids)
-    crop_ids = np.concatenate(crop_ids)
-    return field_ids, crop_ids
+    #crop_ids = np.concatenate(crop_ids)
+    return field_ids#, crop_ids
 
 def validation_split(
     field_ids, 

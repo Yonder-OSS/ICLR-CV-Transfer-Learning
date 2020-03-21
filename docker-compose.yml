@@ -1,9 +1,11 @@
 version: '3'
 
 services:
-    iclr-cv-model:
-        image: iclr-cv-model
+    iclr-cv-model-eval:
+        image: iclr-cv-model-eval
         volumes:
             - .:/root
             - ./data:/root/data
             - ./model_weights:/root/model_weights
+        #command: python /root/train.py /root/configs/train.json
+        command: python /root/eval.py /root/configs/eval.json

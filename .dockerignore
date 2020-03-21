@@ -37,6 +37,8 @@ package-lock.json
 .local
 .pytest_cache
 .ipython
+.nv
+.config/matplotlib
 
 *.npy
 *.zip

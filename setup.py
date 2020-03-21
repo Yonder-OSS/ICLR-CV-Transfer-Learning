@@ -8,5 +8,7 @@ setup(
     install_requires=[
         "numpy",
         "pandas",
+        "scikit-learn",
+        "scipy>=1.2.0",
     ],
 )
